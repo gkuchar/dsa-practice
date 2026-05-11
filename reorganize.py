@@ -18,8 +18,6 @@ def get_changed_file():
 
 def assemble_path(diff):
     dirs = diff.split('/')
-    if dirs[0] != 'Data Structures & Algorithms':
-        sys.exit(0)
 
     raw_problem = dirs[1]
     topic = PROBLEM_TO_TOPIC.get(raw_problem, 'uncategorized')

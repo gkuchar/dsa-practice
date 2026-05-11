@@ -1,6 +1,9 @@
 name: reorganize
 
-on: push
+on:
+  push:
+    paths:
+      - 'Data Structures & Algorithms/**'
 
 jobs:
   reorganize:
