@@ -19,3 +19,11 @@ jobs:
 
       - name: Run reorganize script
         run: python reorganize.py
+
+      - name: Commit and push reorganized file
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add src/
+          git commit -m "reorganize: move submission to src/"
+          git push
