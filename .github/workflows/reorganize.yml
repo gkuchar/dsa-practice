@@ -5,6 +5,9 @@ on:
     paths:
       - 'Data Structures & Algorithms/**'
 
+permissions:
+  contents: write
+
 jobs:
   reorganize:
     runs-on: ubuntu-latest
