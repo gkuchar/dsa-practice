@@ -1,0 +1,21 @@
+name: reorganize
+
+on: push
+
+jobs:
+  reorganize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+
+      - name: Configure git
+        run: git config --global --add safe.directory /github/workspace
+
+      - name: Run reorganize script
+        run: python reorganize.py
