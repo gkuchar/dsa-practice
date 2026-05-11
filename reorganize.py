@@ -18,9 +18,11 @@ def get_changed_file():
 
 def assemble_path(diff):
     dirs = diff.split('/')
+    if dirs[0] != 'Data Structures & Algorithms':
+        sys.exit(0)
 
     raw_problem = dirs[1]
-    topic = PROBLEM_TO_TOPIC.get(raw_problem, "uncategorized")
+    topic = PROBLEM_TO_TOPIC.get(raw_problem, 'uncategorized')
     problem = raw_problem.replace('-', '_')
 
     submission_number = dirs[2].split('-')[1].split('.')[0]
