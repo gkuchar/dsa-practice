@@ -33,6 +33,11 @@ def assemble_path(diff):
 
 def main():
     original_path = get_changed_file()
+    dirs = original_path.split('/')
+    if dirs[0] != "Data Structures & Algorithms":
+        sys.exit(0)
+    if not os.path.exists(original_path):
+        sys.exit(0)
     new_path = assemble_path(original_path)
 
     shutil.copy(original_path, new_path)
