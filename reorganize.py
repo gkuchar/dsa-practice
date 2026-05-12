@@ -43,6 +43,7 @@ def main():
         new_path = assemble_path(path)
 
         shutil.copy(path, new_path)
+        os.remove(path)
 
 if __name__ == "__main__":
     main()
