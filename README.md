@@ -9,17 +9,17 @@
 ```
 dsa-practice/
   .github/workflows/
-    reorganize.yml        ← GitHub Action pipeline
+    reorganize.yml              ← GitHub Action pipeline
   src/
-    arrays_and_hashing/ ← Partitioned by Topic
-      two_integer_sum/ ← Each Topic Divided into Problems
-        two_integer_sum_0.py ← Each Problem Subdivided into Submissions
+    arrays_and_hashing/         ← The Set is Partitioned by Topic
+      two_integer_sum/          ← Each Topic Divided into Problems
+        two_integer_sum_0.py    ← Each Problem Subdivided into Submissions
     trees/
       invert_a_binary_tree/
         invert_a_binary_tree_0.py
     ...
-  problem_topic_map.py    ← 150-problem slug-to-topic mapping
-  reorganize.py           ← reorganization script
+  problem_topic_map.py          ← 150-problem slug-to-topic mapping
+  reorganize.py                 ← reorganization script
 ```
 
 ---
@@ -36,7 +36,7 @@ NeetCode submission → GitHub Sync commit → GitHub Action → src/{topic}/{pr
 
 ## Full Problems Breakdown
 
-| Topic | Count |
+| Topic | Problem Count |
 |---|---|
 | Arrays & Hashing | 9 |
 | Two Pointers | 5 |
