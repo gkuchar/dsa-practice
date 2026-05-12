@@ -14,7 +14,7 @@ def get_changed_file():
         capture_output=True,
         text=True
     )
-    return result.stdout.strip()
+    return result.stdout.strip().split('\n')
 
 def assemble_path(diff):
     dirs = diff.split('/')
@@ -32,15 +32,17 @@ def assemble_path(diff):
     return new_path
 
 def main():
-    original_path = get_changed_file()
-    dirs = original_path.split('/')
-    if dirs[0] != "Data Structures & Algorithms":
-        sys.exit(0)
-    if not os.path.exists(original_path):
-        sys.exit(0)
-    new_path = assemble_path(original_path)
+    original_paths = get_changed_file()
 
-    shutil.copy(original_path, new_path)
+    for path in original_paths:
+        dirs = path.split('/')
+        if dirs[0] != "Data Structures & Algorithms":
+            continue
+        if not os.path.exists(path):
+            continue
+        new_path = assemble_path(path)
+
+        shutil.copy(path, new_path)
 
 if __name__ == "__main__":
     main()
