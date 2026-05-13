@@ -29,9 +29,10 @@ def assemble_path(diff):
 
     new_path = f'src/{topic}/{problem}/{problem}_{submission_number}.py'
 
-    return new_path
+    return (new_path, problem, submission_number)
 
 def main():
+    message = ''
     original_paths = get_changed_file()
 
     for path in original_paths:
@@ -40,10 +41,16 @@ def main():
             continue
         if not os.path.exists(path):
             continue
-        new_path = assemble_path(path)
+        new_path, problem, submission_number = assemble_path(path)
 
         shutil.copy(path, new_path)
         os.remove(path)
 
+        commit_message = f'solved {problem}, submission {submission_number}. '
+        message += commit_message
+    
+    return message
+
 if __name__ == "__main__":
-    main()
+    message = main()
+    print(message)
